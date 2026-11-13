@@ -1,0 +1,90 @@
+:root {
+  --bg: var(--vscode-editor-background);
+  --fg: var(--vscode-editor-foreground);
+  --muted: var(--vscode-descriptionForeground);
+  --panel: var(--vscode-sideBar-background, rgba(127,127,127,0.08));
+  --accent: #7c5cff;
+  --border: var(--vscode-panel-border, rgba(127,127,127,0.25));
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--vscode-font-family);
+  margin: 0;
+  padding: 16px 24px 32px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+h1 { margin: 0; font-size: 22px; letter-spacing: 0.5px; }
+h2 { margin: 0 0 12px; font-size: 13px; font-weight: 600; color: var(--muted); text-transform: uppercase; }
+
+.periods button {
+  background: transparent;
+  color: var(--fg);
+  border: 1px solid var(--border);
+  padding: 4px 12px;
+  margin-left: 4px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.periods button.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+.card span { display: block; font-size: 28px; font-weight: 700; }
+.card label { color: var(--muted); font-size: 12px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+}
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  min-width: 0;
+}
+.panel.wide { grid-column: 1 / -1; }
+
+.heat {
+  display: grid;
+  grid-template-columns: 36px repeat(24, 1fr);
+  gap: 3px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.heat .head, .heat .label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.heat .cell {
+  height: 22px;
+  border-radius: 4px;
+  background: rgba(127,127,127,0.08);
+}

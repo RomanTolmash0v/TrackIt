@@ -1,0 +1,60 @@
+{
+  "name": "trackit",
+  "displayName": "TrackIt",
+  "description": "Считает написанные строки кода и показывает статистику по времени, файлам и папкам",
+  "version": "0.1.0",
+  "publisher": "local-dev",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "trackit.openStats",
+        "title": "TrackIt: Открыть статистику"
+      },
+      {
+        "command": "trackit.selectFolders",
+        "title": "TrackIt: Выбрать отслеживаемые папки"
+      },
+      {
+        "command": "trackit.resetData",
+        "title": "TrackIt: Сбросить данные"
+      }
+    ],
+    "configuration": {
+      "title": "TrackIt",
+      "properties": {
+        "trackit.folders": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Абсолютные пути папок для учёта. Если пусто, учитываются открытые папки проекта."
+        },
+        "trackit.showStatusBar": {
+          "type": "boolean",
+          "default": true,
+          "description": "Показывать в строке состояния количество строк за сегодня."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.0"
+  }
+}
